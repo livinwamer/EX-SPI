@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Association Login</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root{
+            --p:#957C62;
+            --a:#E2B59A;
+            --bg:#F4F6F8;
+            --t:#555;
+            --w:#fff;
+            --sh:0 10px 30px rgba(0,0,0,.08);
+            --tr:.2s
+        }
+        *,*::before,*::after{box-sizing:border-box}
+        body{
+            font-family:Inter,Arial,sans-serif;
+            background:var(--bg);
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            min-height:100vh;
+            margin:0;
+            padding:20px
+        }
+        .c{
+            width:100%;
+            max-width:500px;
+            background:var(--w);
+            border-radius:12px;
+            box-shadow:var(--sh);
+            padding:40px;
+            border:1px solid rgba(0,0,0,.05)
+        }
+        .h{text-align:center;margin-bottom:30px}
+        .h h1{color:var(--p);font-size:2em;font-weight:800;margin:0 0 8px}
+        .h p{color:var(--t);font-size:1em;margin:0}
+        .g{margin-bottom:20px}
+        .g label{
+            display:block;
+            margin-bottom:8px;
+            font-weight:600;
+            color:var(--p);
+            font-size:.95em
+        }
+        .i,.s,.ta{
+            width:100%;
+            padding:12px 15px;
+            border:1px solid #ddd;
+            border-radius:8px;
+            font-size:1em;
+            color:var(--p);
+            transition:border-color var(--tr),box-shadow var(--tr)
+        }
+        .ta{resize:vertical;min-height:100px}
+        .i:focus,.s:focus,.ta:focus{
+            border-color:var(--a);
+            box-shadow:0 0 0 3px rgb(226, 181, 154);
+            outline:none
+        }
+        .btn{
+            width:100%;
+            padding:15px;
+            margin-top:15px;
+            background:var(--a);
+            color:var(--p);
+            border:none;
+            border-radius:8px;
+            font-size:1.1em;
+            font-weight:800;
+            cursor:pointer;
+            transition:background-color var(--tr),transform .1s,box-shadow var(--tr)
+        }
+        .btn:hover{
+            background:#E2B59A;
+            transform:translateY(-1px);
+            box-shadow:0 4px 15px rgb(226, 181, 154)
+        }
+        .btn:active{transform:translateY(0)}
+
+        .l{text-align:center;margin-top:20px;font-size:.9em}
+        .l a{
+            color:var(--p);
+            text-decoration:none;
+            font-weight:600;
+            transition:color var(--tr);
+            display:inline-block
+        }
+        .l a:hover{color:var(--a)}
+        .mt{margin-top:10px;color:var(--t)}
+        .mt a{color:var(--p);font-weight:600;text-decoration:none}
+        .mt a:hover{color:var(--a)}
+
+        @media (max-width:600px){
+            .c{padding:30px 20px;border-radius:8px}
+            .h h1{font-size:1.6em}
+            .btn{padding:12px;font-size:1em}
+        }
+    </style>
+    </head>
+<body>
+    <div class="c">
+        <div class="h">
+            <h1>Welcome Back</h1>
+            <p>Login to access your Association profile.</p>
+        </div>
+
+        <form action="#" method="post">
+            <div class="g">
+                <label for="em">Email Address</label>
+                <input type="email" id="em" name="email" class="i" required placeholder="you@gmail.com">
+            </div>
+
+            <div class="g">
+                <label for="pw">Password</label>
+                <input type="password" id="pw" name="password" class="i" required placeholder="••••••••">
+            </div>
+
+            <button type="submit" class="btn">
+                Login
+            </button>
+        </form>
+
+        <div class="l">
+            <a href="#">Forgot Password?</a>
+            <p class="mt">Don't have an account? <a href="register.html">Register Now</a></p>
+        </div>
+    </div>
+</body>
+</html>

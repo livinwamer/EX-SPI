@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Association Registration</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
+
+        :root {
+            --p: #957C62;
+            --a: #E2B59A;
+            --bg: #F4F6F8;
+            --t: #555;
+            --w: #ffffff;
+            --sh: 0 10px 30px rgba(0,0,0,.08);
+            --tr: .2s;
+            --border-color: #ddd;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            background-color: var(--w);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: var(--sh); 
+            border: 1px solid rgba(0,0,0,.05);
+            width: 100%;
+            max-width: 500px; 
+        }
+
+        h1 {
+            color: var(--p);
+            text-align: center;
+            margin-bottom: 5px;
+            font-weight: 800;
+        }
+
+        p {
+            color: var(--t);
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--p);
+            font-size: 0.95rem;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        input[type="number"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            box-sizing: border-box; 
+            font-size: 1rem;
+            color: var(--p);
+            transition: border-color var(--tr), box-shadow var(--tr);
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            border-color: var(--a);
+            box-shadow: 0 0 0 3px rgb(226, 181, 154); 
+            outline: none;
+        }
+
+        select {
+            -webkit-appearance: none; 
+            -moz-appearance: none;
+            appearance: none;
+            background-image: url('data:image/svg+xml;charset=US-ASCII,<svg xmlns="http://www.w3.org/2000/svg" width="292.4" height="292.4" fill="%23957C62"><path d="M287 64.2L146.2 205.8 5.4 64.2z"/></svg>');
+            background-repeat: no-repeat;
+            background-position: right 15px top 50%;
+            background-size: 0.6em auto;
+            padding-right: 35px;
+        }
+
+        textarea {
+            resize: vertical; 
+        }
+
+        .submit-button {
+            width: 100%;
+            padding: 15px;
+            margin-top: 15px;
+            background: var(--a);
+            color: var(--p);
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1em;
+            font-weight: 800;
+            cursor: pointer;
+            transition: background-color var(--tr), transform .1s, box-shadow var(--tr);
+        }
+
+        .submit-button:hover {
+            background: #E2B59A;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 15px rgb(226, 181, 154); 
+        }
+
+        .submit-button:active {
+            transform: translateY(0); 
+        }
+
+        @media (max-width:600px){
+            .container{padding:30px 20px;border-radius:8px}
+            h1{font-size:1.6em}
+            .submit-button{padding:12px;font-size:1em}
+        }
+    </style>     
+</head>
+<body>
+    <div class="container">
+        <h1>EX-STUDENTS FORUM</h1>
+        <p>Register to join our community.</p>
+        <form onsubmit="myfunction(event)">
+            <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" required id="name" placeholder="Enter your full name">
+            </div>
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" required id="email" placeholder="e.g., name@example.com">
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" required id="password" minlength="8" placeholder="Must be at least 8 characters">
+            </div>
+            
+            <div class="form-group">
+                <label for="year">Year of Graduation</label>
+                <input type="number" required id="year" min="1950" max="2099" placeholder="e.g., 2018">
+            </div>
+            <div class="form-group">
+                <label for="course">Primary Course/Department</label>
+                <select id="course" name="course" required>
+                    <option value="" disabled selected>Select your area of study</option>
+                    <option value="CS">Computer Science & Technology</option>
+                    <option value="CE">Civil Engineering</option>
+                    <option value="RA">Refrigeration & Air-Conditioning</option>
+                    <option value="ES">Electronics</option>
+                    <option value="TO">Tourism & Hospitality</option>
+                    <option value="ET">Environmental Technology</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="profession">Current Profession</label>
+                <input type="text" required id="profession" placeholder="e.g., Software Engineer, Architect">
+            </div>
+            <div class="form-group">
+                <label for="about">Tell Us About Yourself</label>
+                <textarea id="about" rows="4" placeholder="Briefly describe your current role or achievements."></textarea>
+            </div>
+            <input type="submit" value="Register" class="submit-button">
+        </form>
+    </div>
+    
+    <script type="text/javascript">
+        function myfunction(event){
+            event.preventDefault();
+            
+            var name = document.getElementById("name").value;
+            var email = document.getElementById("email").value;
+            var password = document.getElementById("password").value; 
+            var year = document.getElementById("year").value;
+            var course = document.getElementById("course").value;
+            var profession = document.getElementById("profession").value; 
+            var about = document.getElementById("about").value;
+            
+            localStorage.setItem("name", name);
+            localStorage.setItem("email", email);
+            localStorage.setItem("password", password);
+            localStorage.setItem("year", year);
+            localStorage.setItem("course", course);
+            localStorage.setItem("profession", profession);
+            localStorage.setItem("about", about);
+
+            alert("✨ Success! Your details have been saved locally. Welcome to the network!");
+            
+            event.target.reset();
+        }
+    </script>
+</body>
+</html>
